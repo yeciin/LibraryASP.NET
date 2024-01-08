@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="librarydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="author" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="publisher" Type="varchar" MaxLength="255" />
+          <Property Name="publication_year" Type="int" />
+          <Property Name="ISBN" Type="varchar" MaxLength="20" />
+          <Property Name="genre" Type="varchar" MaxLength="50" />
+          <Property Name="total_copies" Type="int" />
+          <Property Name="copies_available" Type="int" />
+        </EntityType>
+        <EntityType Name="Borrowings">
+          <Key>
+            <PropertyRef Name="borrowing_id" />
+          </Key>
+          <Property Name="borrowing_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="borrow_date" Type="date" />
+          <Property Name="return_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phone_number" Type="varchar" MaxLength="20" />
+          <Property Name="home_address" Type="varchar" MaxLength="100" />
+          <Property Name="password_hash" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phone_number" Type="varchar" MaxLength="20" />
+          <Property Name="position" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password_hash" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK__Borrowing__book___412EB0B6">
+          <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+          <End Role="Borrowings" Type="Self.Borrowings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="book_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrowing__user___3F466844">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Borrowings" Type="Self.Borrowings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrowing__user___403A8C7D">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Borrowings" Type="Self.Borrowings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="librarydbModelStoreContainer">
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Borrowings" EntityType="Self.Borrowings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Borrowing__book___412EB0B6" Association="Self.FK__Borrowing__book___412EB0B6">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrowing__user___3F466844" Association="Self.FK__Borrowing__user___3F466844">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrowing__user___403A8C7D" Association="Self.FK__Borrowing__user___403A8C7D">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="librarydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publisher" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="publication_year" Type="Int32" />
+          <Property Name="ISBN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total_copies" Type="Int32" />
+          <Property Name="copies_available" Type="Int32" />
+          <NavigationProperty Name="Borrowings" Relationship="Self.FK__Borrowing__book___412EB0B6" FromRole="Books" ToRole="Borrowings" />
+        </EntityType>
+        <EntityType Name="Borrowing">
+          <Key>
+            <PropertyRef Name="borrowing_id" />
+          </Key>
+          <Property Name="borrowing_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="borrow_date" Type="DateTime" Precision="0" />
+          <Property Name="return_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Book" Relationship="Self.FK__Borrowing__book___412EB0B6" FromRole="Borrowings" ToRole="Books" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Borrowing__user___3F466844" FromRole="Borrowings" ToRole="Customers" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Borrowing__user___403A8C7D" FromRole="Borrowings" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="home_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password_hash" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Borrowings" Relationship="Self.FK__Borrowing__user___3F466844" FromRole="Customers" ToRole="Borrowings" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_hash" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Borrowings" Relationship="Self.FK__Borrowing__user___403A8C7D" FromRole="Staff" ToRole="Borrowings" />
+        </EntityType>
+        <Association Name="FK__Borrowing__book___412EB0B6">
+          <End Role="Books" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="Borrowings" Type="Self.Borrowing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="book_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrowing__user___3F466844">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Borrowings" Type="Self.Borrowing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrowing__user___403A8C7D">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Borrowings" Type="Self.Borrowing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="Borrowings">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="librarydbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="Borrowings" EntityType="Self.Borrowing" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <AssociationSet Name="FK__Borrowing__book___412EB0B6" Association="Self.FK__Borrowing__book___412EB0B6">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrowing__user___3F466844" Association="Self.FK__Borrowing__user___3F466844">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrowing__user___403A8C7D" Association="Self.FK__Borrowing__user___403A8C7D">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Borrowings" EntitySet="Borrowings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="librarydbModelStoreContainer" CdmEntityContainer="librarydbEntities">
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="librarydbModel.Book">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+                <ScalarProperty Name="publication_year" ColumnName="publication_year" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="total_copies" ColumnName="total_copies" />
+                <ScalarProperty Name="copies_available" ColumnName="copies_available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Borrowings">
+            <EntityTypeMapping TypeName="librarydbModel.Borrowing">
+              <MappingFragment StoreEntitySet="Borrowings">
+                <ScalarProperty Name="borrowing_id" ColumnName="borrowing_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="borrow_date" ColumnName="borrow_date" />
+                <ScalarProperty Name="return_date" ColumnName="return_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="librarydbModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="home_address" ColumnName="home_address" />
+                <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="librarydbModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

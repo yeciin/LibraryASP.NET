@@ -1,0 +1,70 @@
+﻿#TextBox1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#TextBox2 {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#Button1 {
+    top: 70%;
+}
+
+#Button2 {
+    top: 75%;
+}
+
+#Button1,
+#Button2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    #Button1:hover,
+    #Button2:hover {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+#background-image {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    z-index: -1;
+    margin-left: 20%;
+}
+
+#Label1 {
+    top: 80%;
+    position: absolute;
+    left: 40%;
+    z-index: 1;
+    font-size: 16px;
+}
+
+#logo-image {
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+    margin-top: 20px;
+    margin-left: 40%;
+    width: 20%;
+}
+
+body {
+    background-color: #EDB953;
+    margin-top: 0;
+}
