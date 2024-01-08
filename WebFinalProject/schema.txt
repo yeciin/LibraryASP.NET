@@ -1,0 +1,44 @@
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY IDENTITY(1000,1),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20),
+	home_address VARCHAR(100),
+	password_hash VARCHAR(128)
+);
+
+
+CREATE TABLE Books (
+    book_id INT PRIMARY KEY IDENTITY(1,1),
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+	publisher VARCHAR(255),
+    publication_year INT,
+    ISBN VARCHAR(20),
+    genre VARCHAR(50),
+    total_copies INT,
+    copies_available INT
+);
+
+
+CREATE TABLE Staff (
+    staff_id INT PRIMARY KEY IDENTITY(1,1),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20),
+    position VARCHAR(50) NOT NULL,
+	password_hash VARCHAR(128)
+);
+
+CREATE TABLE Borrowings (
+    borrowing_id INT PRIMARY KEY IDENTITY(1,1),
+    user_id INT,
+    book_id INT,
+    borrow_date DATE,
+    return_date DATE,
+    FOREIGN KEY (user_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Staff(staff_id) ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+);

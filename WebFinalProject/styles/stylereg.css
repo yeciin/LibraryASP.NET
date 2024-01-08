@@ -1,20 +1,25 @@
-﻿#TextBox1, #TextBox2, #TextBox3, #TextBox4, #TextBox5, #TextBox6, #TextBox7 {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
+﻿#TextBox1,
+#TextBox2,
+#TextBox3,
+#TextBox4,
+#TextBox5,
+#TextBox6,
+#TextBox7 {
+  display: block;
+  margin-bottom: 10px;
+}
 
-  #Label1 {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-   font-size: 40px;
-   color: blue;
-  }
-  
+#Label1 {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 40px;
+  color: blue;
+}
+
 #Button1 {
-    display: block;
-    margin-top: 10px;
+  display: block;
+  margin-top: 10px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -34,10 +39,10 @@
 body {
   background-color: #edb953;
 }
-.reg-container *{
-    margin-left: 30%;
-    width: 35%;
-    padding: 10px;
-    justify-content: center;
-    margin:0px auto;
+.reg-container * {
+  margin-left: 30%;
+  width: 35%;
+  padding: 10px;
+  justify-content: center;
+  margin: 0px auto;
 }
