@@ -42,3 +42,6 @@ CREATE TABLE Borrowings (
     FOREIGN KEY (user_id) REFERENCES Staff(staff_id) ON DELETE CASCADE,
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
+--
+username for staff is yassin@staff.com
+password for staff is password

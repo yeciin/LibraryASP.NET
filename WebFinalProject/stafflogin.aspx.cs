@@ -3,11 +3,13 @@ using System.Web.Security;
 
 namespace WebFinalProject
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class stafflogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string userEmail = TextBox1.Text;
@@ -20,23 +22,13 @@ namespace WebFinalProject
                 if (authManager.UserExists(userEmail, hashedPassword, out string userType))
                 {
                     FormsAuthentication.RedirectFromLoginPage(userEmail, false);
-                    Response.Redirect("main.aspx");
+                    Response.Redirect("directory.aspx");
                 }
                 else
                 {
-                    Label1.Text = "Login failed. Invalid email or password.";
+                    return;
                 }
             }
-        }
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("register.aspx");
-        }
-
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("stafflogin.aspx");
         }
     }
 }

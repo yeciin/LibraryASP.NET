@@ -17,6 +17,7 @@
             <asp:Button ID="Button1" runat="server" Text="Log In" OnClick="Button1_Click" />
             <asp:Button ID="Button2" runat="server" Text="New Here?" OnClick="Button2_Click" />
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            <asp:Button ID="Button3" runat="server" Text="staff" OnClick="Button3_Click" />
         </div>
     </form>
 </body>

@@ -134,6 +134,8 @@
     <Compile Include="Borrowing.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AuthenticationManager.cs" />
+    <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,6 +184,13 @@
     <Compile Include="Staff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="stafflogin.aspx.cs">
+      <DependentUpon>stafflogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stafflogin.aspx.designer.cs">
+      <DependentUpon>stafflogin.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -225,6 +234,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="stafflogin.aspx" />
     <Content Include="styles\stylelogin.css" />
     <Content Include="styles\stylemain.css" />
     <Content Include="styles\stylereg.css" />
