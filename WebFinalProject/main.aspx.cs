@@ -14,7 +14,7 @@ namespace WebFinalProject
             {
                 Response.Redirect("~/Login.aspx");
             }
-            if (!IsPostBack)
+           else if (!IsPostBack)
             {
                 LoadBooks();
             }

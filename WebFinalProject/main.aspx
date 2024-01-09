@@ -7,6 +7,10 @@ Inherits="WebFinalProject.main" %>
   <head runat="server">
     <title></title>
     <link rel="stylesheet" href="styles/stylemain.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
   </head>
   <body>
     <form id="form1" runat="server">
@@ -25,17 +29,22 @@ Inherits="WebFinalProject.main" %>
           >Contact</asp:HyperLink
         >
         <div class="search-container">
-            <asp:TextBox ID="txtSearch" runat="server" placeholder="Search.."></asp:TextBox>
+          <asp:TextBox
+            ID="txtSearch"
+            runat="server"
+            placeholder="Search.."
+          ></asp:TextBox>
           <asp:Button
             ID="btnSearch"
             runat="server"
             CssClass="search-btn"
             Text="Search"
             OnClick="btnSearch_Click"
-          />
+          >
+          </asp:Button>
         </div>
-        </div>
-        <div class="book-container">
+      </div>
+      <div class="book-container">
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
       </div>
     </form>
