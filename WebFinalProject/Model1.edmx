@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="librarydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="librarydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Books">
           <Key>
             <PropertyRef Name="book_id" />
@@ -18,6 +18,7 @@
           <Property Name="genre" Type="varchar" MaxLength="50" />
           <Property Name="total_copies" Type="int" />
           <Property Name="copies_available" Type="int" />
+          <Property Name="cover" Type="image" />
         </EntityType>
         <EntityType Name="Borrowings">
           <Key>
@@ -111,8 +112,7 @@
             <End Role="Borrowings" EntitySet="Borrowings" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="librarydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -130,6 +130,7 @@
           <Property Name="total_copies" Type="Int32" />
           <Property Name="copies_available" Type="Int32" />
           <NavigationProperty Name="Borrowings" Relationship="Self.FK__Borrowing__book___412EB0B6" FromRole="Books" ToRole="Borrowings" />
+          <Property Name="cover" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Borrowing">
           <Key>
@@ -237,6 +238,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="librarydbModel.Book">
               <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="cover" ColumnName="cover" />
                 <ScalarProperty Name="book_id" ColumnName="book_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="author" ColumnName="author" />

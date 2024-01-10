@@ -24,5 +24,20 @@ namespace WebFinalProject
             FormsAuthentication.SignOut();
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/books");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/staffs");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/customers");
+        }
     }
 }

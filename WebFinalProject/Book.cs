@@ -29,6 +29,7 @@ namespace WebFinalProject
         public string genre { get; set; }
         public Nullable<int> total_copies { get; set; }
         public Nullable<int> copies_available { get; set; }
+        public byte[] cover { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Borrowing> Borrowings { get; set; }
