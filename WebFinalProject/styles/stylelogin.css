@@ -1,77 +1,77 @@
-﻿#TextBox1 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-#TextBox2 {
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-#Button1 {
-  top: 70%;
-}
-
-#Button2 {
-  top: 75%;
-}
-
-#Button1,
-#Button2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#Button1:hover,
-#Button2:hover {
-  background-color: #4caf50;
-  color: #fff;
-}
-
-#background-image {
-  position: absolute;
-  width: 60%;
+﻿html {
   height: 100%;
-  z-index: -1;
-  margin-left: 20%;
 }
-
-#Label1 {
-  top: 80%;
-  position: absolute;
-  left: 40%;
-  z-index: 1;
-  font-size: 16px;
-}
-
-#logo-image {
-  position: absolute;
-  object-fit: cover;
-  z-index: 0;
-  margin-top: 20px;
-  margin-left: 40%;
-  width: 20%;
-}
-
 body {
-  background-color: #edb953;
-  margin-top: 0;
+  background-image: url("../images/loginbg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
 }
 
 #Button3 {
   position: fixed;
   bottom: 0;
   right: 0;
-  margin: 10px; /* Optional: Add some margin from the bottom and right edges */
+  margin: 10px;
+}
+.form
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.form *{
+  margin-top: 25px;
+}
+#Button1{
+  width: 180px;
+  background-color: #808080;;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+
+#Button1:hover {
+  background-color: #555;
+}
+#Button2{
+
+  background-color: #808080;;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+#Button2:hover {
+  background-color: #555;
+}
+
+.logo{
+text-align: center;
+}
+
+input.box{
+  background-color: transparent;
+  color: #333; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+input.staffbutton{
+  background-color: transparent;
+  color: #333; 
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
 }

@@ -9,15 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <img id="background-image" src="/images/login.png" alt="Background Image" />
-    <img src="/images/logo.png" alt="logo" id="logo-image" />
+        <div class="logo">
+        <img src="images/logo.png" alt="logo" >
+    </div>
         <div>
-            <asp:TextBox ID="TextBox1" runat="server" TextMode="Email" placeholder="Enter your Email"></asp:TextBox>
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" placeholder="Enter your password"></asp:TextBox>
+            <div class="form">
+            <asp:TextBox ID="TextBox1" runat="server" TextMode="Email" placeholder="Enter your Email"  CssClass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" placeholder="Enter your password" CssClass="box"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" Text="Log In" OnClick="Button1_Click" />
-            <asp:Button ID="Button2" runat="server" Text="New Here?" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="New Here?" OnClick="Button2_Click"  />
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-            <asp:Button ID="Button3" runat="server" Text="staff" OnClick="Button3_Click" />
+        </div>
+            <asp:Button ID="Button3" runat="server" Text="staff" OnClick="Button3_Click" CssClass="staffbutton"/>
         </div>
     </form>
 </body>
