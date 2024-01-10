@@ -52,22 +52,37 @@ namespace WebFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Handle the uploaded image
-                if (imageFile != null && imageFile.ContentLength > 0)
+                try
                 {
-                    using (var binaryReader = new BinaryReader(imageFile.InputStream))
+                    if (imageFile != null && imageFile.ContentLength > 0)
                     {
-                        book.cover = binaryReader.ReadBytes(imageFile.ContentLength);
-                    }
-                }
+                        if (!imageFile.ContentType.StartsWith("image"))
+                        {
+                            ModelState.AddModelError(string.Empty, "Please upload a valid image file.");
+                            return View(book);
+                        }
 
-                db.Books.Add(book);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                        using (var binaryReader = new BinaryReader(imageFile.InputStream))
+                        {
+                            book.cover = binaryReader.ReadBytes(imageFile.ContentLength);
+                        }
+                    }
+
+                    db.Books.Add(book);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception (you can replace this with your logging mechanism)
+                    Console.WriteLine($"Error saving image: {ex.Message}");
+                    ModelState.AddModelError(string.Empty, "Error saving image. Please try again.");
+                }
             }
 
             return View(book);
         }
+
 
         // GET: Books/Edit/5
         public ActionResult Edit(int? id)
@@ -84,27 +99,38 @@ namespace WebFinalProject.Controllers
             return View(book);
         }
 
-        // POST: Books/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "book_id,title,author,publisher,publication_year,ISBN,genre,total_copies,copies_available")] Book book, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
-                // Handle the uploaded image
-                if (imageFile != null && imageFile.ContentLength > 0)
+                try
                 {
-                    using (var binaryReader = new BinaryReader(imageFile.InputStream))
+                    if (imageFile != null && imageFile.ContentLength > 0)
                     {
-                        book.cover = binaryReader.ReadBytes(imageFile.ContentLength);
-                    }
-                }
+                        if (!imageFile.ContentType.StartsWith("image"))
+                        {
+                            ModelState.AddModelError(string.Empty, "Please upload a valid image file.");
+                            return View(book);
+                        }
 
-                db.Entry(book).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                        using (var binaryReader = new BinaryReader(imageFile.InputStream))
+                        {
+                            book.cover = binaryReader.ReadBytes(imageFile.ContentLength);
+                        }
+                    }
+
+                    db.Entry(book).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception (you can replace this with your logging mechanism)
+                    Console.WriteLine($"Error saving image during edit: {ex.Message}");
+                    ModelState.AddModelError(string.Empty, "Error saving image during edit. Please try again.");
+                }
             }
 
             return View(book);

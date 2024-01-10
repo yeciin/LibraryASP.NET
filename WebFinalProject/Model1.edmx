@@ -18,7 +18,7 @@
           <Property Name="genre" Type="varchar" MaxLength="50" />
           <Property Name="total_copies" Type="int" />
           <Property Name="copies_available" Type="int" />
-          <Property Name="cover" Type="image" />
+          <Property Name="cover" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Borrowings">
           <Key>
