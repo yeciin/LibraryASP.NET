@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 
 namespace WebFinalProject
 {
@@ -36,9 +33,7 @@ namespace WebFinalProject
 
         public bool IsStaff(string email, string hashedPassword)
         {
-            Staff staff = dbContext.Staffs.FirstOrDefault(s => s.email == email && s.password_hash == hashedPassword);
-            return staff != null;
+            return dbContext.Staffs.Any(s => s.email == email && s.password_hash == hashedPassword);
         }
     }
-
 }

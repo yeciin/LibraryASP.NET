@@ -19,13 +19,22 @@ namespace WebFinalProject
             using (librarydbEntities dbContext = new librarydbEntities())
             {
                 AuthenticationManager authManager = new AuthenticationManager(dbContext);
-                if (authManager.UserExists(userEmail, hashedPassword, out string userType))
+                if (authManager.IsStaff(userEmail, hashedPassword))
                 {
                     FormsAuthentication.RedirectFromLoginPage(userEmail, false);
+                    string userType = "Staff";
+                    if (!Roles.RoleExists(userType))
+                    {
+                        Roles.CreateRole(userType);
+                    }
+
+                    Roles.AddUserToRole(userEmail, userType);
                     Response.Redirect("directory.aspx");
                 }
                 else
                 {
+                    Label1.Text = "Login failed. Invalid email or password.";
+
                     return;
                 }
             }

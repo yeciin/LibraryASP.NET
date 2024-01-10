@@ -20,11 +20,16 @@ namespace WebFinalProject
                 if (authManager.UserExists(userEmail, hashedPassword, out string userType))
                 {
                     FormsAuthentication.RedirectFromLoginPage(userEmail, false);
+
+                    string userRole = (userType == "customer") ? "Customer" : "Staff";
+
+                    if (!Roles.RoleExists(userType))
+                    {
+                        Roles.CreateRole(userType);
+                    }
+                    Roles.AddUserToRole(userEmail, userType);
+
                     Response.Redirect("main.aspx");
-                }
-                else
-                {
-                    Label1.Text = "Login failed. Invalid email or password.";
                 }
             }
         }
