@@ -5,21 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="styles/stylereg.css">
+    <link rel="stylesheet" href="styles/stylelogin.css">
 </head>
 <body>
     <form id="form1" runat="server">
-        <img id="background-image" src="images/login.png" alt="Background Image" />
-        <div class = "reg-container">
-            <asp:TextBox ID="TextBox1" runat="server"  placeholder="First Name"></asp:TextBox>
-            <asp:TextBox ID="TextBox2" runat="server"  placeholder="Last Name"></asp:TextBox>
-            <asp:TextBox ID="TextBox3" runat="server"  placeholder="Email" TextMode="Email"></asp:TextBox>
-            <asp:TextBox ID="TextBox4" runat="server"  placeholder="Phone Number" TextMode="Phone"></asp:TextBox>
-            <asp:TextBox ID="TextBox5" runat="server"  placeholder="Address"></asp:TextBox>
-            <asp:TextBox ID="TextBox6" runat="server"  placeholder="Password" TextMode="Password"></asp:TextBox>
-            <asp:TextBox ID="TextBox7" runat="server"  placeholder="Reenter Password" TextMode="Password"></asp:TextBox>
+        <div class = "form">
+            <asp:TextBox ID="TextBox1" runat="server"  placeholder="First Name" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server"  placeholder="Last Name" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server"  placeholder="Email" TextMode="Email" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox4" runat="server"  placeholder="Phone Number" TextMode="Phone" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox5" runat="server"  placeholder="Address" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox6" runat="server"  placeholder="Password" TextMode="Password" Cssclass="box"></asp:TextBox>
+            <asp:TextBox ID="TextBox7" runat="server"  placeholder="Reenter Password" TextMode="Password" Cssclass="box"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"/>
-            <asp:Label ID="Label1" runat="server" Text="hello" AutoPostBack="true"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="" AutoPostBack="true" Cssclass="label"></asp:Label>
         </div>
     </form>
 </body>

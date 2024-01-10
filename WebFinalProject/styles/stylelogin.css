@@ -24,7 +24,7 @@ body {
   margin-bottom: 10px;
 }
 .form *{
-  margin-top: 25px;
+  margin-top: 15px;
 }
 #Button1{
   width: 180px;
@@ -74,4 +74,13 @@ input.staffbutton{
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
+}
+
+.label{
+  display: block;
+  margin-top: 20px;
+  padding: 5px;
+  color: #ff0000;
+  font-size: 14px;
+
 }

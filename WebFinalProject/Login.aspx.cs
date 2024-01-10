@@ -34,6 +34,11 @@ namespace WebFinalProject
 
                     Response.Redirect("main.aspx");
                 }
+                else
+                {
+                    Label1.Text = "Incorrect or missing data";
+                    return;
+                }
             }
         }
         protected void Button2_Click(object sender, EventArgs e)
