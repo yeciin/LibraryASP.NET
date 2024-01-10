@@ -27,13 +27,8 @@ namespace WebFinalProject
             {
                 List<Book> books = dbContext.Books.ToList();
 
-                foreach (Book book in books)
-                {
-                    HtmlGenericControl bookDiv = new HtmlGenericControl("div");
-                    bookDiv.InnerHtml = $"<h3>{book.title}</h3><p>Author: {book.author}</p><p>Genre: {book.genre}</p> <p>Available Copies: {book.copies_available}</p>";
-
-                    PlaceHolder1.Controls.Add(bookDiv);
-                }
+                Repeater1.DataSource = books;
+                Repeater1.DataBind();
             }
         }
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -61,18 +56,11 @@ namespace WebFinalProject
                 DisplayBooks(books);
             }
         }
-        private void DisplayBooks(System.Collections.Generic.List<Book> books)
-        {
-            PlaceHolder1.Controls.Clear();
-
-            foreach (Book book in books)
-            {
-                var bookDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-                bookDiv.Attributes["class"] = "flex-item";
-                bookDiv.InnerHtml = $"<h3>{book.title}</h3><p>Author: {book.author}</p><p>Genre: {book.genre}</p> <p>Available Copies : {book.copies_available}</p>";
-                PlaceHolder1.Controls.Add(bookDiv);
-            }
-        }
+private void DisplayBooks(List<Book> books)
+{
+    Repeater1.DataSource = books;
+    Repeater1.DataBind();
+}
 
         protected void Button1_Click(object sender, EventArgs e)
         {
