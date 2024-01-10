@@ -11,6 +11,8 @@ Inherits="WebFinalProject.main" %>
   <body>
     <form id="form1" runat="server">
       <div class="topnav">
+        <div class="left">
+          <img src="images/logo2.png" alt="" class="logo">
         <asp:HyperLink
           ID="hlHome"
           CssClass="active"
@@ -24,11 +26,13 @@ Inherits="WebFinalProject.main" %>
         <asp:HyperLink ID="hlContact" NavigateUrl="#contact" runat="server"
           >Contact</asp:HyperLink
         >
+      </div>
         <div class="search-container">
           <asp:TextBox
             ID="txtSearch"
             runat="server"
             placeholder="Search.."
+            CssClass="search"
           ></asp:TextBox>
           <asp:Button
             ID="btnSearch"
@@ -39,6 +43,7 @@ Inherits="WebFinalProject.main" %>
           >
           </asp:Button>
         </div>
+        <div class="right">
         <asp:Button
           ID="Button1"
           runat="server"
@@ -46,13 +51,14 @@ Inherits="WebFinalProject.main" %>
           OnClick="Button1_Click"
         />
       </div>
+      </div>
       <div class="book-container bookrepeater">
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
                 <div class="flex-item">
                     <asp:Image
                         ID="BookImage"
-                        runat="server"
+                        runat="server" CssClass="coverimage"
                         ImageUrl='<%# "data:image/jpg;base64," + Convert.ToBase64String((byte[])Eval("cover")) %>'
                     />
                     <h3><%# Eval("title") %></h3>
