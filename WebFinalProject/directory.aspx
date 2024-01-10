@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" Text="Log Out" OnClick="Button1_Click" />
         </div>
     </form>
 </body>

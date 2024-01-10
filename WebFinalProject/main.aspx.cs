@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Security;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
@@ -71,6 +72,13 @@ namespace WebFinalProject
                 bookDiv.InnerHtml = $"<h3>{book.title}</h3><p>Author: {book.author}</p><p>Genre: {book.genre}</p> <p>Available Copies : {book.copies_available}</p>";
                 PlaceHolder1.Controls.Add(bookDiv);
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+
+            Response.Redirect("~/Login.aspx");
         }
     }
 }

@@ -27,8 +27,11 @@ namespace WebFinalProject
                     {
                         Roles.CreateRole(userType);
                     }
+                    if (!Roles.IsUserInRole(userEmail, userType))
+                    {
+                        Roles.AddUserToRole(userEmail, userType);
+                    }
 
-                    Roles.AddUserToRole(userEmail, userType);
                     Response.Redirect("directory.aspx");
                 }
                 else

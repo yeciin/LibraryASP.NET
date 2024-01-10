@@ -43,6 +43,7 @@ Inherits="WebFinalProject.main" %>
           >
           </asp:Button>
         </div>
+          <asp:Button ID="Button1" runat="server" Text="Log Out" OnClick="Button1_Click" />
       </div>
       <div class="book-container">
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
