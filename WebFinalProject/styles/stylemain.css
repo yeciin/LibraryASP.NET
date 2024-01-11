@@ -4,7 +4,7 @@
 }
 
 .topnav {
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   display: flex;
@@ -15,7 +15,8 @@
 }
 
 .left img{
-  height: 50px;
+  height: 36.5px;
+  width: 126.5px;
 }
 .left *{
   text-decoration: none;
@@ -28,5 +29,94 @@
   border: 3px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  padding: 5px;
+
+}
+.active{
+  color: white; /* Text color for normal state */
+  text-decoration: none; /* Remove default underline */
+  font-family: 'Arial', sans-serif; /* Add your desired font family */
+  font-size: 16px; /* Add your desired font size */
+  margin: 0 15px; /* Add margin to separate menu items */
+  transition: color 0.3s ease;
+}
+.active:hover {
+  color: #ffc107; /* Text color on hover */
+}
+
+.links{
+  justify-content: center;
+  margin-top: 10px;
+  flex-grow: 1;
+}
+.search-container{
+  flex-grow: 7;
+  margin-top: 7px;
+  padding-left: 200px;
+}
+.left{
+  flex-grow: 1;
+}
+.right{
+flex-grow: 1;
+margin-top: 7px;
+padding-left: 100px;
+}
+/* Styles for the book container */
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+#Button1, #btnSearch{
+  background-color: #808080;;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#Button1{
+  transform: scale(0.85);
+}
+
+
+/* Styles for each book item in the repeater */
+.bookrepeater .flex-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.bookrepeater .flex-item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Styles for the book cover image */
+.bookrepeater .flex-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Styles for book titles */
+.bookrepeater .flex-item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Styles for author, genre, and available copies */
+.bookrepeater .flex-item p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #666;
 }

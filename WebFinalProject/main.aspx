@@ -13,20 +13,23 @@ Inherits="WebFinalProject.main" %>
       <div class="topnav">
         <div class="left">
           <img src="images/logo2.png" alt="" class="logo">
+        </div>
+        <div class="links">
         <asp:HyperLink
-          ID="hlHome"
-          CssClass="active"
-          NavigateUrl="#home"
-          runat="server"
-          >Home</asp:HyperLink
-        >
-        <asp:HyperLink ID="hlAbout" NavigateUrl="#about" runat="server"
-          >About</asp:HyperLink
-        >
-        <asp:HyperLink ID="hlContact" NavigateUrl="#contact" runat="server"
-          >Contact</asp:HyperLink
-        >
-      </div>
+            ID="hlHome"
+            CssClass="active"
+            NavigateUrl="#home"
+            runat="server"
+            >Home</asp:HyperLink
+          >
+          <asp:HyperLink ID="hlAbout" NavigateUrl="#about" runat="server" CssClass="active"
+            >About</asp:HyperLink
+          >
+          <asp:HyperLink ID="hlContact" NavigateUrl="#contact" runat="server" CssClass="active"
+            >Contact</asp:HyperLink
+          >
+        </div>
+
         <div class="search-container">
           <asp:TextBox
             ID="txtSearch"
