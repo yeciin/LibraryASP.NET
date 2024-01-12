@@ -19,6 +19,7 @@ namespace WebFinalProject
             }
             else if (!IsPostBack)
             {
+                DisplayRandomQuote();
                 LoadBookDetails();
             }
         }
@@ -42,7 +43,7 @@ namespace WebFinalProject
                     if (book != null)
                     {
                         Cover.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(book.cover);
-                        Title.Text = "Title: " + book.title;
+                        BTitle.Text = "Title: " + book.title;
                         Author.Text = "Author: " + book.author;
                         Publisher.Text = "Publisher: " + book.publisher;
                         Year.Text = "Year: " + book.publication_year.ToString();
@@ -62,5 +63,20 @@ namespace WebFinalProject
             }
 
         }
+            private void DisplayRandomQuote()
+    {
+        using (librarydbEntities dbContext = new librarydbEntities())
+        {
+            Random random = new Random();
+            int randomQuoteId = random.Next(1, dbContext.quotes.Count() + 1);
+
+            var randomQuote = dbContext.quotes.FirstOrDefault(q => q.ID == randomQuoteId);
+
+            if (randomQuote != null)
+            {
+                quoteoftheday.Text = randomQuote.qotd + " - " + randomQuote.author;
+            }
+        }
+    }
     }
 }

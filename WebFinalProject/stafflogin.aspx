@@ -12,7 +12,7 @@
             <asp:TextBox ID="TextBox1" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
             <asp:TextBox ID="TextBox2" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" Text="Log in" OnClick="Button1_Click" />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         </div>
     </form>
 </body>

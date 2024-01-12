@@ -25,7 +25,7 @@ Inherits="WebFinalProject.main" %>
         <asp:HyperLink
             ID="hlHome"
             CssClass="active"
-            NavigateUrl="#home"
+            NavigateUrl="main.aspx"
             runat="server"
             >Home</asp:HyperLink
           >
@@ -75,7 +75,7 @@ Inherits="WebFinalProject.main" %>
                     <p>Author: <%# Eval("author") %></p>
                     <p>Genre: <%# Eval("genre") %></p>
                     <p>Available Copies: <%# Eval("copies_available") %></p>
-                    <asp:Button ID="btnPurchase" runat="server" CssClass="purchase-button" Text="Purchase"
+                    <asp:Button ID="btnPurchase" runat="server" CssClass="purchase-button" Text="Borrow"
                     OnClientClick='<%# Eval("book_id", "redirectToBookDetails({0}); return false;") %>' />
                 </div>
             </ItemTemplate>

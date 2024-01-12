@@ -29,5 +29,6 @@ namespace WebFinalProject
         public virtual DbSet<Borrowing> Borrowings { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<quote> quotes { get; set; }
     }
 }
