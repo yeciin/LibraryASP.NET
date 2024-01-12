@@ -42,6 +42,14 @@
           <Property Name="home_address" Type="varchar" MaxLength="100" />
           <Property Name="password_hash" Type="varchar" MaxLength="128" />
         </EntityType>
+        <EntityType Name="quotes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qotd" Type="text" Nullable="false" />
+          <Property Name="author" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="staff_id" />
@@ -98,6 +106,7 @@
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Borrowings" EntityType="Self.Borrowings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quotes" EntityType="Self.quotes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Borrowing__book___412EB0B6" Association="Self.FK__Borrowing__book___412EB0B6">
             <End Role="Books" EntitySet="Books" />
@@ -228,7 +237,16 @@
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Borrowings" EntitySet="Borrowings" />
           </AssociationSet>
+          <EntitySet Name="quotes" EntityType="librarydbModel.quote" />
         </EntityContainer>
+        <EntityType Name="quote">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qotd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="author" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -285,6 +303,15 @@
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
                 <ScalarProperty Name="position" ColumnName="position" />
                 <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quotes">
+            <EntityTypeMapping TypeName="librarydbModel.quote">
+              <MappingFragment StoreEntitySet="quotes">
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="qotd" ColumnName="qotd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

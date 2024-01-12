@@ -25,7 +25,7 @@ Inherits="WebFinalProject.main" %>
         <asp:HyperLink
             ID="hlHome"
             CssClass="active"
-            NavigateUrl="#home"
+            NavigateUrl="main.aspx"
             runat="server"
             >Home</asp:HyperLink
           >
