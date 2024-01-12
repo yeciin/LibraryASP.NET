@@ -1,3 +1,9 @@
+* {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body,
 html {
   height: 100%;
@@ -106,7 +112,41 @@ body {
   margin-right: 70px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .detaildiv *{
     margin-bottom: 20px;
+}
+
+
+.body-container
+{
+  display: flex;
+}
+.quote{
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px;
+}
+.qotd{
+  text-align: center;
+  font-size:xx-large;
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+@media screen and (max-width: 600px) {
+
+  .body-container{
+    flex-direction: column;
+  }
+  .bookdetail {
+    width: auto;
+  }
+  body {
+    background-size: contain;
+    background-position: center;
+  }
 }
