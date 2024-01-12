@@ -7,12 +7,19 @@ Inherits="WebFinalProject.main" %>
   <head runat="server">
     <title></title>
     <link rel="stylesheet" href="styles/stylemain.css" />
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/purchasemenu.js"></script>
+    <script type="text/javascript">
+      function redirectToBookDetails(bookId) {
+          window.location.href = 'BookDetails.aspx?bookId=' + bookId;
+      }
+  </script>
   </head>
   <body>
     <form id="form1" runat="server">
       <div class="topnav">
         <div class="left">
-          <img src="images/logo2.png" alt="" class="logo">
+          <img src="images/logo2.png" alt="" class="logo"/>
         </div>
         <div class="links">
         <asp:HyperLink
@@ -58,7 +65,7 @@ Inherits="WebFinalProject.main" %>
       <div class="book-container bookrepeater">
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
-                <div class="flex-item">
+                <div class="flex-item clickable">
                     <asp:Image
                         ID="BookImage"
                         runat="server" CssClass="coverimage"
@@ -68,6 +75,8 @@ Inherits="WebFinalProject.main" %>
                     <p>Author: <%# Eval("author") %></p>
                     <p>Genre: <%# Eval("genre") %></p>
                     <p>Available Copies: <%# Eval("copies_available") %></p>
+                    <asp:Button ID="btnPurchase" runat="server" CssClass="purchase-button" Text="Purchase"
+                    OnClientClick='<%# Eval("book_id", "redirectToBookDetails({0}); return false;") %>' />
                 </div>
             </ItemTemplate>
         </asp:Repeater>

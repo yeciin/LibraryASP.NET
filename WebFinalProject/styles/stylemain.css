@@ -1,4 +1,5 @@
-﻿body, html {
+﻿body,
+html {
   height: 100%;
   margin: 0;
 }
@@ -14,57 +15,56 @@
   background-color: #dad3d3;
 }
 
-.left img{
+.left img {
   height: 36.5px;
   width: 126.5px;
 }
-.left *{
+.left * {
   text-decoration: none;
 }
 
-
-.search{
+.search {
   background-color: transparent;
-  color: #333; 
+  color: #333;
   border: 3px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-
 }
-.active{
-  color: white; 
+.active {
+  color: white;
   text-decoration: none;
-  font-family: 'Arial', sans-serif; 
-  font-size: 16px; 
-  margin: 0 15px; 
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  margin: 0 15px;
   transition: color 0.3s ease;
   font-weight: bold;
 }
 .active:hover {
-  color: #585240; 
+  color: #585240;
 }
 
-.links{
+.links {
   justify-content: center;
   margin-top: 10px;
   flex-grow: 1;
 }
-.search-container{
+.search-container {
   flex-grow: 7;
   margin-top: 7px;
   padding-left: 200px;
 }
-.left{
+.left {
   flex-grow: 1;
 }
-.right{
-flex-grow: 1;
-margin-top: 7px;
-padding-left: 100px;
+.right {
+  flex-grow: 1;
+  margin-top: 7px;
+  padding-left: 100px;
 }
 
-#Button1, #btnSearch{
-  background-color: #808080;;
+#Button1,
+#btnSearch {
+  background-color: #808080;
   padding: 10px;
   color: #fff;
   border: none;
@@ -72,12 +72,16 @@ padding-left: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-#Button1{
+#Button1 {
   transform: scale(0.85);
 }
 
+@media screen and (max-width: 600px) {
+  .topnav {
+    flex-direction: column;
+  }
+}
 
-/* Styles for the book container */
 .book-container {
   display: flex;
   flex-wrap: wrap;
@@ -85,7 +89,6 @@ padding-left: 100px;
   padding: 20px;
 }
 
-/* Styles for each book item in the repeater */
 .bookrepeater .flex-item {
   border: 1px solid #ddd;
   padding: 15px;
@@ -100,7 +103,6 @@ padding-left: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for the book cover image */
 .bookrepeater .flex-item img {
   max-width: 200px;
   height: 300px;
@@ -108,16 +110,34 @@ padding-left: 100px;
   border-radius: 5px;
 }
 
-/* Styles for book titles */
 .bookrepeater .flex-item h3 {
   font-size: 16px;
   margin-bottom: 5px;
   color: #333;
 }
 
-/* Styles for author, genre, and available copies */
 .bookrepeater .flex-item p {
   font-size: 14px;
   margin: 5px 0;
   color: #666;
+}
+
+.bookrepeater .flex-item:hover {
+  transform: scale(1.3);
+}
+
+.bookrepeater .flex-item .purchase-button {
+  display: none;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#Button1 {
+  font-size: 14px;
+  padding: 8px 10px;
 }
