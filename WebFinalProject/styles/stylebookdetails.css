@@ -123,11 +123,10 @@ body {
 {
   display: flex;
 }
-.quote{
-  width: 50%;
-  justify-content: center;
+.quote{  justify-content: center;
   text-align: center;
   padding-top: 100px;
+  margin-bottom: 50px;
 }
 .qotd{
   text-align: center;
@@ -149,4 +148,33 @@ body {
     background-size: contain;
     background-position: center;
   }
+}
+#Button1 {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+.sortdiv{
+  margin-top: 2%;
+  margin-left: 6%;
+}
+
+#Button2{
+  font-size: large;
+  font-weight: bold;
+}
+.rightside{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.checkout *{
+  text-align: center;
+  color: #4CAF50;
+  font-weight: bold;
+
+}
+.checkout{
+  margin-top: 20px;
+  text-align: center;
 }

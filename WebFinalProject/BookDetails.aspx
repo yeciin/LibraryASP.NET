@@ -103,8 +103,9 @@ Inherits="WebFinalProject.BookDetails" %>
               Text="Label"
               Cssclass="bookcopies"
             ></asp:Label>
+            <asp:Button ID="Button2" runat="server" Text="Borrow Now" OnClick="Button2_Click"/>
           </div>
-        </div>
+        </div><div class="rightside">
         <div class="quote">
           <asp:Label
             ID="quoteoftheday"
@@ -112,6 +113,10 @@ Inherits="WebFinalProject.BookDetails" %>
             Text=""
             Cssclass="qotd"
           ></asp:Label>
+        </div>
+        <div class="checkout">
+            <asp:Label ID="Label2" runat="server" Text="" ></asp:Label>
+        </div>
         </div>
       </div>
     </form>
