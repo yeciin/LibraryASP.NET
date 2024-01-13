@@ -69,7 +69,7 @@ html {
 }
 
 #Button1,
-#btnSearch {
+#btnSearch, #Button2 {
   background-color: #808080;
   padding: 10px;
   color: #fff;
@@ -152,7 +152,3 @@ html {
   cursor: pointer;
 }
 
-#Button1 {
-  font-size: 14px;
-  padding: 8px 10px;
-}
