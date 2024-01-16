@@ -84,7 +84,9 @@ html {
 
 @media screen and (max-width: 600px) {
   .topnav {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
   }
   .topnav *{
@@ -102,6 +104,7 @@ html {
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  justify-content: center;
 }
 
 .bookrepeater .flex-item {
@@ -150,5 +153,10 @@ html {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.sortdiv{
+  margin: 10px;
+  margin-left: 10%;
 }
 

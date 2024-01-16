@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.Security;
 
 namespace WebFinalProject
@@ -88,11 +84,11 @@ namespace WebFinalProject
             {
                 string bookName = book.title;
                 // int userId = GetUserId();
-                // int bookId = book.book_id;
+                int bookId = book.book_id;
                 DateTime currentDate = DateTime.Now;
                 DateTime returnDate = currentDate.AddMonths(1);
 
-                // UpdateAvailableCopies(bookId);
+                UpdateAvailableCopies(bookId);
 
                 // InsertBorrowingRecord(userId, bookId, currentDate, returnDate);
 
@@ -114,13 +110,11 @@ namespace WebFinalProject
                 }
                 else
                 {
-                    // Log or handle the case where parsing fails
                     throw new InvalidOperationException("Unable to parse ProviderUserKey to integer.");
                 }
             }
             else
             {
-                // Log or handle the case where ProviderUserKey is null
                 throw new InvalidOperationException("ProviderUserKey is null.");
             }
         }
